@@ -35,13 +35,13 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 //User Routes
-app.use('/api/v1/users', userRouter);
-app.use('/api/v1/chat', chatRoutes);
-app.use('/api/v1/message', messageRoutes);
-app.use('/api/v1/admin', adminRoutes);
-app.use('/api/v1/report', reportRoutes);
-app.use('/api/v1/ctf', ctfRoutes);
-app.use('/api/v1/contest', contestRoutes);
+app.use('/v1/users', userRouter);
+app.use('/v1/chat', chatRoutes);
+app.use('/v1/message', messageRoutes);
+app.use('/v1/admin', adminRoutes);
+app.use('/v1/report', reportRoutes);
+app.use('/v1/ctf', ctfRoutes);
+app.use('/v1/contest', contestRoutes);
 
 //Route of global error handler
 app.use(globalErrorController);

@@ -23,7 +23,7 @@ const AdminChat = () => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:5000/api/v1/message",
+          "api/v1/message",
           {
             content: newMessage,
             chatId: selectedChat._id,

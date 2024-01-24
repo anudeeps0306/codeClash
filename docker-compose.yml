@@ -1,5 +1,15 @@
 version: '3'
 services:
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3000:80'
   api:
     build:
       dockerfile: Dockerfile.dev
@@ -7,8 +17,6 @@ services:
     volumes:
       - /app/node_modules
       - ./Codeclash-server:/app
-    ports:
-      - 5000:5000
 
   client:
     stdin_open: true
@@ -20,6 +28,4 @@ services:
     volumes:
       - /app/node_modules
       - ./Codeclash:/app
-    ports:
-      - 3000:3000
 

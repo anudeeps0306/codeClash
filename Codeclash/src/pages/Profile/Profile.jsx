@@ -31,7 +31,7 @@ const Me = () => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/users/${slug}`,
+        `api/v1/users/${slug}`,
 
         config
       );
@@ -71,7 +71,7 @@ const Me = () => {
 
       // console.log(viewUser);
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/users/make-friend`,
+        `api/v1/users/make-friend`,
         { friendId: viewUser._id },
 
         config

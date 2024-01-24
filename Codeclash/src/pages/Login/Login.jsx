@@ -39,7 +39,7 @@ const Login = () => {
         };
         setLoading(true);
         const { data } = await axios.post(
-          'http://localhost:5000/api/v1/users/login',
+          'api/v1/users/login',
           { email: username, password: password },
           config
         );

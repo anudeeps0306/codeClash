@@ -31,7 +31,7 @@ const Home = () => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/ctf`,
+        `api/v1/ctf`,
 
         config
       );
@@ -73,7 +73,7 @@ const Home = () => {
         };
         console.log(isUserLoggedIn.current.token);
         const { data } = await axios.post(
-          `http://localhost:5000/api/v1/ctf/createCtf`,
+          `api/v1/ctf/createCtf`,
           {
             description: discription,
             heading,

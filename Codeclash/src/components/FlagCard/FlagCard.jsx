@@ -27,7 +27,7 @@ const FlagCard = ({ object }) => {
         },
       };
       const data = await axios.post(
-        `http://localhost:5000/api/v1/ctf/submitFlag`,
+        `api/v1/ctf/submitFlag`,
         { flag: flag, ctfId: object._id },
         config
       );
