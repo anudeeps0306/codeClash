@@ -1,0 +1,25 @@
+version: '3'
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./Codeclash-server
+    volumes:
+      - /app/node_modules
+      - ./Codeclash-server:/app
+    ports:
+      - 5000:5000
+
+  client:
+    stdin_open: true
+    depends_on:
+      - api
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./Codeclash
+    volumes:
+      - /app/node_modules
+      - ./Codeclash:/app
+    ports:
+      - 3000:3000
+
