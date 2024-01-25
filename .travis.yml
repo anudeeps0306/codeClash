@@ -1,0 +1,25 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t anudeep0306/react-test -f ./Codeclash/Dockerfile.dev ./client
+
+script:
+  - docker run anudeeps0306/react-test npm test -- --coverage
+
+after_sucess:
+  - docker build -t anudeeps0306/mutli-Codeclash ./Codeclash
+  - docker build -t anudeeps0306/mutli-Codeclash-server ./Codeclash-server
+  - docker build -t anudeeps0306/mutli-nginx ./nginx
+
+  #to docker hub
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push anudeep/mutli-Codeclash
+  - docker push anudeep/mutli-Codeclash-server
+  - docker push anudeep/mutli-nginx
+
+
