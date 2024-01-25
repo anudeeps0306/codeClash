@@ -10,16 +10,16 @@ before_install:
 #   - docker run anudeep0306/react-test npm test -- --coverage
 
 script:
-  - docker build -t anudeep0306/mutli-Codeclash ./Codeclash
-  - docker build -t anudeep0306/mutli-Codeclash-server ./Codeclash-server
+  - docker build -t anudeep0306/mutli-codeclash ./Codeclash
+  - docker build -t anudeep0306/mutli-codeclash-server ./Codeclash-server
   - docker build -t anudeep0306/mutli-nginx ./nginx
 
   #to docker hub
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push anudeep0306/mutli-Codeclash
-  - docker push anudeep0306/mutli-Codeclash-server
+  - docker push anudeep0306/mutli-codeclash
+  - docker push anudeep0306/mutli-codeclash-server
   - docker push anudeep0306/mutli-nginx
 
 
