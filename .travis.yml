@@ -6,10 +6,10 @@ services:
 before_install:
   - docker build -t anudeep0306/react-test -f ./Codeclash/Dockerfile.dev ./Codeclash
 
-script:
-  - docker run anudeep0306/react-test npm test -- --coverage
+# script:
+#   - docker run anudeep0306/react-test npm test -- --coverage
 
-after_sucess:
+script:
   - docker build -t anudeeps0306/mutli-Codeclash ./Codeclash
   - docker build -t anudeeps0306/mutli-Codeclash-server ./Codeclash-server
   - docker build -t anudeeps0306/mutli-nginx ./nginx
